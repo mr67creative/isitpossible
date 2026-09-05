@@ -5,8 +5,8 @@ export const Route = createFileRoute('/')({ component: Home })
 
 function Home() {
   return (
-    <div>
+    <main className='h-screen w-screen relative'>
       <Dock />
-    </div>
+    </main>
   )
 }

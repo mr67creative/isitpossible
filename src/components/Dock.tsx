@@ -1,8 +1,8 @@
-import React from 'react'
-
 function Dock() {
   return (
-    <div>Dock</div>
+    <div className='absolute bottom-0 left-0 w-[40vw] mx-[30vw] border mb-4 rounded-full h-10 px-3 flex flex-row items-center justify-between'>
+      Dock
+    </div>
   )
 }
 
