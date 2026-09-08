@@ -1,16 +1,19 @@
 import { useApp } from "#/context/app"
 
 function AppWindows() {
-  const { apps } = useApp()
+  const { apps, closeApp } = useApp()
   return (
     <main className="relative h-full w-full">
       {Object.entries(apps).map(([id, app]) => {
         const Render = app.content
         const Header = app.header.override === false ? (
+
           <header className="w-full flex flex-row items-center justify-between px-4">
             {app.header.content}
-            <nav>Close</nav>
+
+            <nav className="cursor-pointer" onClick={() => closeApp(app.id)}>Close</nav>
           </header>
+
         ) : app.header.content
 
         return (

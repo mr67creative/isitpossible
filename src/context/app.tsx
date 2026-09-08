@@ -25,6 +25,8 @@ interface AppDefinition {
 
 type AppId = "resume" | "whoami" | "portfolio"
 
+const INITIAL_Z_POSITION = 10;
+
 const Apps: Record<AppId, AppDefinition> = {
     resume: {
         id: "resume",
@@ -48,7 +50,7 @@ const Apps: Record<AppId, AppDefinition> = {
         position: {
             x: 20,
             y: 20,
-            z: 0,
+            z: INITIAL_Z_POSITION,
             fixed: false
         },
         size: {
@@ -79,7 +81,7 @@ const Apps: Record<AppId, AppDefinition> = {
         position: {
             x: 600,
             y: 100,
-            z: 0,
+            z: INITIAL_Z_POSITION,
             fixed: false
         },
         size: {
@@ -92,7 +94,7 @@ const Apps: Record<AppId, AppDefinition> = {
         id: "portfolio",
         name: "I heard Polio or smthing?",
         header: {
-            override: true,
+            override: false,
             content: (() => (
                 <>
                     <h1>Portfolio</h1>
@@ -110,7 +112,7 @@ const Apps: Record<AppId, AppDefinition> = {
         position: {
             x: 350,
             y: 300,
-            z: 0,
+            z: INITIAL_Z_POSITION,
             fixed: false
         },
         size: {
@@ -120,8 +122,6 @@ const Apps: Record<AppId, AppDefinition> = {
         }
     }
 }
-
-const INITIAL_Z_POSITION = 0
 
 interface App {
     apps: typeof Apps;
