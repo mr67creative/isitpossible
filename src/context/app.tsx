@@ -143,7 +143,7 @@ export const useApp = create<App>()(
 
         focusApp(id) {
             set((state) => {
-                state.apps[id].position.z = state.nextZPosition
+                state.apps[id].position.z = state.nextZPosition++
             })
         },
         closeApp(id) {
@@ -154,16 +154,16 @@ export const useApp = create<App>()(
 
         updateRectangle(id, rectangle) {
             set((state) => {
-                if (rectangle.height) {
+                if (rectangle.height !== undefined) {
                     state.apps[id].size.height = rectangle.height
                 }
-                if (rectangle.width) {
+                if (rectangle.width !== undefined) {
                     state.apps[id].size.width = rectangle.width
                 }
-                if (rectangle.x) {
+                if (rectangle.x !== undefined) {
                     state.apps[id].position.x = rectangle.x
                 }
-                if (rectangle.y) {
+                if (rectangle.y !== undefined) {
                     state.apps[id].position.y = rectangle.y
                 }
             })

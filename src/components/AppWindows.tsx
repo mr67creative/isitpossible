@@ -1,19 +1,9 @@
 import { useApp, type AppId } from "#/context/app"
-import { useRef } from "react"
 import { Rnd } from "react-rnd"
 
 function AppWindows() {
   const { apps, closeApp, focusApp, updateRectangle } = useApp()
 
-  const rndReference = useRef<Rnd>(null)
-  const contentReference = useRef(null)
-
-  const onDrag = (event, position: { x: number, y: number }) => {
-    rndReference.current?.updatePosition({
-      x: position.x,
-      y: position.y
-    })
-  }
   const onResizeStop = (event, direction, reference, delta, position: { x: number, y: number }, id: AppId) => {
     updateRectangle(id, {
       x: position.x,
@@ -33,20 +23,10 @@ function AppWindows() {
     <main className="relative h-full w-full">
       {Object.entries(apps).map(([id, app]) => {
         const Render = app.content
-        const Header = app.header.override === false ? (
-
-          <header className="window-drag-handle w-full flex flex-row items-center justify-between px-4 bg-blue-900 text-white cursor-grab">
-            {app.header.content}
-
-            <nav className="cursor-pointer" onClick={() => closeApp(app.id)}>Close</nav>
-          </header>
-
-        ) : app.header.content
 
         return (
           <Rnd
-          key={id}
-            ref={rndReference}
+            key={id}
             position={{
               x: app.position.x,
               y: app.position.y
@@ -58,7 +38,6 @@ function AppWindows() {
             style={{
               zIndex: app.position.z
             }}
-            onDrag={onDrag}
             onResizeStop={(event, direction, reference, delta, position) => onResizeStop(event, direction, reference, delta, position, app.id)}
             onDragStop={(event, position) => onDragStop(event, position, app.id)}
             enableResizing
@@ -77,17 +56,23 @@ function AppWindows() {
               bottomLeft: { cursor: "nesw-resize" },
               bottomRight: { cursor: "nwse-resize" },
             }}
-
-            className="border"
           >
-            <section className="bg-blue-200 min-h-full min-w-full cursor-default">
-              {Header}
+            <section
+              onKeyUp={focusApp.bind(null, app.id)}
+              onClick={focusApp.bind(null, app.id)}
+              className="bg-blue-200 min-h-full min-w-full cursor-default"
+            >
+              {app.header.override === false ? (
 
-              <main
-                ref={contentReference}
-                onKeyUp={focusApp.bind(null, app.id)}
-                onClick={focusApp.bind(null, app.id)}
-              >
+                <header className="window-drag-handle w-full flex flex-row items-center justify-between px-4 bg-blue-900 text-white cursor-grab">
+                  {app.header.content}
+
+                  <nav className="cursor-pointer" onClick={() => closeApp(app.id)}>Close</nav>
+                </header>
+
+              ) : app.header.content}
+
+              <main>
                 {Render}
               </main>
             </section>
