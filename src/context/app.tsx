@@ -6,8 +6,8 @@ interface AppDefinition {
     name: string;
     header: {
         override: boolean;
-        content?: React.ReactNode
-    } | string;
+        content: React.ReactNode
+    };
     logo: string;
     content: React.ReactNode;
     size: {
@@ -33,7 +33,7 @@ const Apps: Record<AppId, AppDefinition> = {
             override: true,
             content: (() => (
                 <>
-                    <h1>Have a break, Have a Resume?</h1>
+                    <h1>Resume</h1>
                 </>
             )
             )()
@@ -46,8 +46,8 @@ const Apps: Record<AppId, AppDefinition> = {
         )(),
         logo: "",
         position: {
-            x: 0,
-            y: 0,
+            x: 20,
+            y: 20,
             z: 0,
             fixed: false
         },
@@ -64,7 +64,7 @@ const Apps: Record<AppId, AppDefinition> = {
             override: true,
             content: (() => (
                 <>
-                    <h1>Who am I, truly?</h1>
+                    <h1>WhoamI</h1>
                 </>
             )
             )()
@@ -77,8 +77,8 @@ const Apps: Record<AppId, AppDefinition> = {
         )(),
         logo: "",
         position: {
-            x: 0,
-            y: 0,
+            x: 600,
+            y: 100,
             z: 0,
             fixed: false
         },
@@ -95,7 +95,7 @@ const Apps: Record<AppId, AppDefinition> = {
             override: true,
             content: (() => (
                 <>
-                    <h1>Is it my portfolio?</h1>
+                    <h1>Portfolio</h1>
                 </>
             )
             )()
@@ -108,8 +108,8 @@ const Apps: Record<AppId, AppDefinition> = {
         )(),
         logo: "",
         position: {
-            x: 0,
-            y: 0,
+            x: 350,
+            y: 300,
             z: 0,
             fixed: false
         },
