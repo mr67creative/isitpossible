@@ -41,9 +41,9 @@ const Apps: Record<AppId, AppDefinition> = {
             )()
         },
         content: (() => (
-            <>
+            <main className="min-h-full min-w-full">
                 <h1>Have a break, Have a Resume?</h1>
-            </>
+            </main>
         )
         )(),
         logo: "",
@@ -72,9 +72,9 @@ const Apps: Record<AppId, AppDefinition> = {
             )()
         },
         content: (() => (
-            <>
+            <main className="min-h-full min-w-full">
                 <h1>Who am I, truly?</h1>
-            </>
+            </main>
         )
         )(),
         logo: "",
@@ -103,9 +103,9 @@ const Apps: Record<AppId, AppDefinition> = {
             )()
         },
         content: (() => (
-            <>
+            <main className="min-h-full min-w-full">
                 <h1>Is it my portfolio?</h1>
-            </>
+            </main>
         )
         )(),
         logo: "",
@@ -127,7 +127,7 @@ interface App {
     apps: typeof Apps;
     nextZPosition: number;
 
-    openApp: (id: AppId) => void;
+    focusApp: (id: AppId) => void;
     closeApp: (id: AppId) => void;
 
     updateRectangle: (id: AppId, rectangle: {
@@ -143,7 +143,7 @@ export const useApp = create<App>()(
         apps: Apps,
         nextZPosition: INITIAL_Z_POSITION + 1,
 
-        openApp(id) {
+        focusApp(id) {
             set((state) => {
                 state.apps[id].position.z = state.nextZPosition
             })
