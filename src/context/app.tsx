@@ -23,20 +23,20 @@ interface AppDefinition {
     }
 }
 
-type AppId = "resume" | "whoami" | "portfolio"
+export type AppId = "resume" | "whoami" | "portfolio"
 
-const INITIAL_Z_POSITION = 10;
+export const INITIAL_Z_POSITION = 10;
 
-const Apps: Record<AppId, AppDefinition> = {
+export const Apps: Record<AppId, AppDefinition> = {
     resume: {
         id: "resume",
         name: "Do u Want 2 Resume?",
         header: {
             override: true,
             content: (() => (
-                <>
+                <header className="window-drag-handle cursor-grab">
                     <h1>Resume</h1>
-                </>
+                </header>
             )
             )()
         },
@@ -65,9 +65,9 @@ const Apps: Record<AppId, AppDefinition> = {
         header: {
             override: true,
             content: (() => (
-                <>
+                <header className="window-drag-handle cursor-grab">
                     <h1>WhoamI</h1>
-                </>
+                </header>
             )
             )()
         },
@@ -96,9 +96,7 @@ const Apps: Record<AppId, AppDefinition> = {
         header: {
             override: false,
             content: (() => (
-                <>
-                    <h1>Portfolio</h1>
-                </>
+                <h1>Portfolio</h1>
             )
             )()
         },

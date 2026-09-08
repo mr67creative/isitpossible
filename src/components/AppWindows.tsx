@@ -1,16 +1,33 @@
-import { useApp } from "#/context/app"
+import { useApp, type AppId } from "#/context/app"
 import { useRef } from "react"
 import { Rnd } from "react-rnd"
 
 function AppWindows() {
-  const { apps, closeApp, focusApp } = useApp()
+  const { apps, closeApp, focusApp, updateRectangle } = useApp()
 
-  const rndReference = useRef(null)
+  const rndReference = useRef<Rnd>(null)
   const contentReference = useRef(null)
 
-  const onDrag = () => { }
-  const onResizeStop = () => { }
-  const onDragStop = () => { }
+  const onDrag = (event, position: { x: number, y: number }) => {
+    rndReference.current?.updatePosition({
+      x: position.x,
+      y: position.y
+    })
+  }
+  const onResizeStop = (event, direction, reference, delta, position: { x: number, y: number }, id: AppId) => {
+    updateRectangle(id, {
+      x: position.x,
+      y: position.y,
+      width: parseInt(reference.style.width),
+      height: parseInt(reference.style.height)
+    })
+  }
+  const onDragStop = (event, position: { x: number, y: number }, id: AppId) => {
+    updateRectangle(id, {
+      x: position.x,
+      y: position.y
+    })
+  }
 
   return (
     <main className="relative h-full w-full">
@@ -18,7 +35,7 @@ function AppWindows() {
         const Render = app.content
         const Header = app.header.override === false ? (
 
-          <header className="w-full flex flex-row items-center justify-between px-4 bg-blue-900 text-white cursor-grab">
+          <header className="window-drag-handle w-full flex flex-row items-center justify-between px-4 bg-blue-900 text-white cursor-grab">
             {app.header.content}
 
             <nav className="cursor-pointer" onClick={() => closeApp(app.id)}>Close</nav>
@@ -28,6 +45,7 @@ function AppWindows() {
 
         return (
           <Rnd
+          key={id}
             ref={rndReference}
             position={{
               x: app.position.x,
@@ -41,14 +59,14 @@ function AppWindows() {
               zIndex: app.position.z
             }}
             onDrag={onDrag}
-            onResizeStop={onResizeStop}
-            onDragStop={onDragStop}
+            onResizeStop={(event, direction, reference, delta, position) => onResizeStop(event, direction, reference, delta, position, app.id)}
+            onDragStop={(event, position) => onDragStop(event, position, app.id)}
             enableResizing
             minHeight={200}
             minWidth={200}
 
             // I found this from google and this looks very identical to the real application windows
-            // dragHandleClassName="window-drag-handle"
+            dragHandleClassName="window-drag-handle"
             resizeHandleStyles={{
               top: { cursor: "ns-resize" },
               bottom: { cursor: "ns-resize" },
