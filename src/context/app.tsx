@@ -129,6 +129,13 @@ interface App {
 
     openApp: (id: AppId) => void;
     closeApp: (id: AppId) => void;
+
+    updateRectangle: (id: AppId, rectangle: {
+        x?: number;
+        y?: number;
+        width?: number;
+        height?: number;
+    }) => void;
 }
 
 export const useApp = create<App>()(
@@ -144,6 +151,23 @@ export const useApp = create<App>()(
         closeApp(id) {
             set((state) => {
                 state.apps[id].position.z = -1
+            })
+        },
+
+        updateRectangle(id, rectangle) {
+            set((state) => {
+                if (rectangle.height) {
+                    state.apps[id].size.height = rectangle.height
+                }
+                if (rectangle.width) {
+                    state.apps[id].size.width = rectangle.width
+                }
+                if (rectangle.x) {
+                    state.apps[id].position.x = rectangle.x
+                }
+                if (rectangle.y) {
+                    state.apps[id].position.y = rectangle.y
+                }
             })
         }
     }))
