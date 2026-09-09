@@ -186,6 +186,13 @@ export const useApp = create<App>()(
             set((state) => {
                 state.apps[id].position.z = state.nextZPosition++
             })
+
+            if (id === "contact") {
+                useScreen.getState().unlockChat("reach")
+            } else if (id === "resume") {
+                useScreen.getState().unlockChat("projects")
+            }
+
         },
         closeApp(id) {
             set((state) => {

@@ -26,13 +26,15 @@ const chatContent: Record<string, ChatContent | ChatContent[]> = {
     "projects": {
         somebody: "U have anything to so?",
         me: () => <p>Nah! I've everything to show: (COMING SOON)</p>
-    } 
+    }
 }
 
 interface Screen {
     totalAppOpened: number;
     defaultChatContent: Record<string, ChatContent | ChatContent[]>;
     chats: Record<string, ChatContent | ChatContent[]>;
+
+    unlockChat: (chatId: string) => void;
 }
 
 export const useScreen = create<Screen>()(
@@ -46,5 +48,15 @@ export const useScreen = create<Screen>()(
             whatisthis: chatContent.whatisthis,
             // reach: chatContent.reach,
             // projects: chatContent.projects
+        },
+
+        unlockChat(chatId) {
+            set((state) => {
+                const content = chatContent[chatId]
+
+                if (content) {
+                    state.chats[chatId] = content
+                }
+            })
         }
     })))
