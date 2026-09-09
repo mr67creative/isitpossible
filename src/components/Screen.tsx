@@ -1,6 +1,6 @@
 import { useScreen } from "#/context/screen"
 
-const STARTING_TOP_POSITION = 10
+const STARTING_TOP_POSITION = 8
 const ANSWER_GAP = 8
 const NEXT_CHAT_GAP = 26
 const X_POSITION_DELTA = 20
