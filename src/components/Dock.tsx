@@ -1,4 +1,5 @@
 import { INITIAL_Z_POSITION, useApp, type AppId } from "#/context/app"
+import { cn } from "#/lib/utils"
 
 function Dock() {
   const { apps, focusApp, closeApp } = useApp()
@@ -20,8 +21,10 @@ function Dock() {
       <div className="relative w-full flex flex-row items-center justify-between">
         <section className="w-full flex justify-start items-center gap-6">
           {firstHalfApps.map(([id, app], index) => {
+            const visible = app.position.z > INITIAL_Z_POSITION
+
             return (
-              <div title={app.name} onClick={() => handleClick(app.id)} className="cursor-pointer">
+              <div title={app.name} onClick={() => handleClick(app.id)} className={cn("cursor-pointer", visible ? "bg-blue-50" : "")}>
                 App {index + 1}
               </div>
             )
@@ -32,8 +35,10 @@ function Dock() {
         </section>
         <section className="w-full flex justify-end items-center gap-6">
           {lastHalfApps.map(([id, app], index) => {
+            const visible = app.position.z > INITIAL_Z_POSITION
+
             return (
-              <div title={app.name} onClick={() => handleClick(app.id)} className="cursor-pointer">
+              <div title={app.name} onClick={() => handleClick(app.id)} className={cn("cursor-pointer", visible ? "bg-blue-50" : "")}>
                 App {avg + index + 1}
               </div>
             )
