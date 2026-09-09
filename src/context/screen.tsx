@@ -20,7 +20,7 @@ const chatContent: Record<string, ChatContent | ChatContent[]> = {
 interface Screen {
     totalAppOpened: number;
     defaultChatContent: Record<string, ChatContent | ChatContent[]>;
-    chat: Record<string, ChatContent | ChatContent[]>;
+    chats: Record<string, ChatContent | ChatContent[]>;
 }
 
 export const useScreen = create<Screen>()(
@@ -28,5 +28,8 @@ export const useScreen = create<Screen>()(
         totalAppOpened: 0,
 
         defaultChatContent: chatContent,
-        chat: {}
+        chats: {
+            introduction: chatContent.introduction,
+            handle: chatContent.handle
+        }
     })))
