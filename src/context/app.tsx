@@ -32,7 +32,7 @@ export const Apps: Record<AppId, AppDefinition> = {
         id: "resume",
         name: "Do u Want 2 Resume?",
         header: {
-            override: true,
+            override: false,
             content: (() => (
                 <header className="window-drag-handle cursor-grab">
                     <h1>Resume</h1>
@@ -63,7 +63,7 @@ export const Apps: Record<AppId, AppDefinition> = {
         id: "whoami",
         name: "1st tell me Who R U??",
         header: {
-            override: true,
+            override: false,
             content: (() => (
                 <header className="window-drag-handle cursor-grab">
                     <h1>WhoamI</h1>
