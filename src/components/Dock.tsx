@@ -34,7 +34,7 @@ function Dock() {
           {lastHalfApps.map(([id, app], index) => {
             return (
               <div title={app.name} onClick={() => handleClick(app.id)} className="cursor-pointer">
-                App {index + 10}
+                App {avg + index + 1}
               </div>
             )
           })}
