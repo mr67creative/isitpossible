@@ -25,7 +25,7 @@ interface AppDefinition {
 
 export type AppId = "resume" | "whoami" | "portfolio"
 
-export const INITIAL_Z_POSITION = 10;
+export const INITIAL_Z_POSITION = 9;
 
 export const Apps: Record<AppId, AppDefinition> = {
     resume: {
