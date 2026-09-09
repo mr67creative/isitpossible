@@ -42,7 +42,7 @@ export const Apps: Record<AppId, AppDefinition> = {
             )()
         },
         content: (() => (
-            <main className="min-h-full min-w-full">
+            <main className="min-h-full min-w-full bg-cyan-200">
                 <h1>Do u Want 2 Resume?</h1>
                 <hr />
                 Projects: COMING SOON
@@ -77,7 +77,7 @@ export const Apps: Record<AppId, AppDefinition> = {
         content: (() => (
             <main className="min-h-full min-w-full">
                 <h1>1st tell me Who R U??</h1>
-                `<hr />
+                <hr />
                 <p>Name: Sambhav Aryal</p>
                 <p>Handle: <a href="https://github.com/mr67creative">Github</a></p>
                 <p>What I Like: To Live</p>
@@ -108,7 +108,7 @@ export const Apps: Record<AppId, AppDefinition> = {
             )()
         },
         content: (() => (
-            <main className="min-h-full min-w-full">
+            <main className="min-h-full min-w-full bg-red-100">
                 <h1>I heard Polio or smthing?</h1>
                 <hr />
                 Uh umm! IDK What to put here
@@ -139,7 +139,7 @@ export const Apps: Record<AppId, AppDefinition> = {
             )()
         },
         content: (() => (
-            <main className="min-h-full min-w-full">
+            <main className="min-h-full min-w-full bg-green-200">
                 <h1>Can you really contact?</h1>
                 <hr />
                 <p>Github: <a href="https://github.com/mr67creative">67</a></p>

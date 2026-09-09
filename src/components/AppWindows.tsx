@@ -60,11 +60,11 @@ function AppWindows() {
             <section
               onKeyUp={focusApp.bind(null, app.id)}
               onClick={focusApp.bind(null, app.id)}
-              className="bg-blue-200 min-h-full min-w-full cursor-default"
+              className="bg-blue-200 h-full w-full cursor-default flex flex-col overflow-hidden"
             >
               {app.header.override === false ? (
 
-                <header className="window-drag-handle w-full flex flex-row items-center justify-between px-4 bg-blue-900 text-white cursor-grab">
+                <header className="window-drag-handle flex-none w-full flex flex-row items-center justify-between px-4 bg-blue-900 text-white cursor-grab">
                   {app.header.content}
 
                   <nav className="cursor-pointer" onClick={(e) => {
@@ -75,7 +75,7 @@ function AppWindows() {
 
               ) : app.header.content}
 
-              <main>
+              <main className="flex-1 w-full overflow-auto">
                 {Render}
               </main>
             </section>
