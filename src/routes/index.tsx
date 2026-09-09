@@ -7,7 +7,7 @@ export const Route = createFileRoute('/')({ component: Home })
 
 function Home() {
   return (
-    <main className='h-screen w-screen relative'>
+    <main className='h-screen w-screen relative select-none'>
       <Screen />
       <AppWindows />
       <Dock />

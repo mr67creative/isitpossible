@@ -25,7 +25,7 @@ function Dock() {
 
             return (
               <div title={app.name} onClick={() => handleClick(app.id)} className={cn("cursor-pointer", visible ? "bg-blue-50" : "")}>
-                App {index + 1}
+                {app.name}
               </div>
             )
           })}
@@ -39,7 +39,7 @@ function Dock() {
 
             return (
               <div title={app.name} onClick={() => handleClick(app.id)} className={cn("cursor-pointer", visible ? "bg-blue-50" : "")}>
-                App {avg + index + 1}
+                {app.name}
               </div>
             )
           })}

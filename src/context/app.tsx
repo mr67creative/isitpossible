@@ -1,5 +1,6 @@
 import { create } from "zustand"
 import { immer } from "zustand/middleware/immer"
+import { useScreen } from "./screen";
 
 interface AppDefinition {
     id: AppId;
@@ -23,14 +24,14 @@ interface AppDefinition {
     }
 }
 
-export type AppId = "resume" | "whoami" | "portfolio"
+export type AppId = "resume" | "whoami" | "contact" | "portfolio"
 
 export const INITIAL_Z_POSITION = 9;
 
 export const Apps: Record<AppId, AppDefinition> = {
     resume: {
         id: "resume",
-        name: "Do u Want 2 Resume?",
+        name: "Resume",
         header: {
             override: false,
             content: (() => (
@@ -42,7 +43,9 @@ export const Apps: Record<AppId, AppDefinition> = {
         },
         content: (() => (
             <main className="min-h-full min-w-full">
-                <h1>Have a break, Have a Resume?</h1>
+                <h1>Do u Want 2 Resume?</h1>
+                <hr />
+                Projects: COMING SOON
             </main>
         )
         )(),
@@ -61,7 +64,7 @@ export const Apps: Record<AppId, AppDefinition> = {
     },
     whoami: {
         id: "whoami",
-        name: "1st tell me Who R U??",
+        name: "Who am I",
         header: {
             override: false,
             content: (() => (
@@ -73,14 +76,18 @@ export const Apps: Record<AppId, AppDefinition> = {
         },
         content: (() => (
             <main className="min-h-full min-w-full">
-                <h1>Who am I, truly?</h1>
+                <h1>1st tell me Who R U??</h1>
+                `<hr />
+                <p>Name: Sambhav Aryal</p>
+                <p>Handle: <a href="https://github.com/mr67creative">Github</a></p>
+                <p>What I Like: To Live</p>
             </main>
         )
         )(),
         logo: "",
         position: {
-            x: 600,
-            y: 100,
+            x: 690,
+            y: 320,
             z: INITIAL_Z_POSITION,
             fixed: false
         },
@@ -92,7 +99,7 @@ export const Apps: Record<AppId, AppDefinition> = {
     },
     portfolio: {
         id: "portfolio",
-        name: "I heard Polio or smthing?",
+        name: "Portfolio",
         header: {
             override: false,
             content: (() => (
@@ -102,7 +109,9 @@ export const Apps: Record<AppId, AppDefinition> = {
         },
         content: (() => (
             <main className="min-h-full min-w-full">
-                <h1>Is it my portfolio?</h1>
+                <h1>I heard Polio or smthing?</h1>
+                <hr />
+                Uh umm! IDK What to put here
             </main>
         )
         )(),
@@ -110,6 +119,38 @@ export const Apps: Record<AppId, AppDefinition> = {
         position: {
             x: 350,
             y: 300,
+            z: INITIAL_Z_POSITION,
+            fixed: false
+        },
+        size: {
+            height: 200,
+            width: 200,
+            static: false
+        }
+    },
+    contact: {
+        id: "contact",
+        name: "contact",
+        header: {
+            override: false,
+            content: (() => (
+                <h1>contact</h1>
+            )
+            )()
+        },
+        content: (() => (
+            <main className="min-h-full min-w-full">
+                <h1>Can you really contact?</h1>
+                <hr />
+                <p>Github: <a href="https://github.com/mr67creative">67</a></p>
+                <p>Email: <a href="mailto:mr67creative@gmail.com">Again 67</a></p>
+            </main>
+        )
+        )(),
+        logo: "",
+        position: {
+            x: 1050,
+            y: 50,
             z: INITIAL_Z_POSITION,
             fixed: false
         },
