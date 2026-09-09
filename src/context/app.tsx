@@ -148,7 +148,7 @@ export const useApp = create<App>()(
         },
         closeApp(id) {
             set((state) => {
-                state.apps[id].position.z = -1
+                state.apps[id].position.z = INITIAL_Z_POSITION
             })
         },
 

@@ -67,7 +67,10 @@ function AppWindows() {
                 <header className="window-drag-handle w-full flex flex-row items-center justify-between px-4 bg-blue-900 text-white cursor-grab">
                   {app.header.content}
 
-                  <nav className="cursor-pointer" onClick={() => closeApp(app.id)}>Close</nav>
+                  <nav className="cursor-pointer" onClick={(e) => {
+                    e.stopPropagation();
+                    closeApp(app.id)
+                  }}>Close</nav>
                 </header>
 
               ) : app.header.content}
