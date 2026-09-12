@@ -4,6 +4,8 @@ It ia an OS + a Chat based portfolio.
 
 ## Pictures & Demo
 
+[Demo](https://user-cdn.hackclub-assets.com/01a095b4-e8d3-7a33-aa9b-6ef1539317f9/isitpossible-demo.mp4)
+
 <img width="957" height="539" alt="image" src="https://github.com/user-attachments/assets/30043b62-1c7c-4efb-bfe4-42001d5d0823" />
 
 ## Features
