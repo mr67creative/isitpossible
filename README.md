@@ -8,6 +8,14 @@ It ia an OS + a Chat based portfolio.
 
 <img width="957" height="539" alt="image" src="https://github.com/user-attachments/assets/30043b62-1c7c-4efb-bfe4-42001d5d0823" />
 
+## Why it exists?
+
+It serves as a (somewhat) unique way to access my details (just like a portfolio would do). 
+
+## How is it different?
+
+It is built to look like an OS + a chatting interface for a unique way to access various information.
+
 ## Features
 
 - Movable/Draggable AppWindows
@@ -44,3 +52,7 @@ Step 5:
 ```bash
 npm run dev
 ```
+
+## Notes
+
+I didn't added a lot of data about myself. However, I added reasonable volume of data about myself for anyone to contact me.
